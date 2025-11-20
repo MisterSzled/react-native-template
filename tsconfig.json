@@ -12,7 +12,8 @@
                         "tailwind.config": [
                                 "./tailwind.config.js"
                         ]
-                }
+                },
+                "allowImportingTsExtensions": true
         },
         "include": [
                 "**/*.ts",

@@ -1,15 +1,21 @@
-import { Box } from "@/components/ui/box";
-import { Text } from "@/components/ui/text";
+// import { Box } from "@/components/ui/box";
+// import { Text } from "@/components/ui/text";
 import { useTranslation } from "react-i18next";
+import { View, Text } from "react-native";
 
-export default function Index() {
+const index = () => {
         const { t } = useTranslation();
-
         return (
-                <Box
-                        className="flex justify-center items-center h-full"
-                >
+                // <Box
+                //         className="flex justify-center items-center h-full"
+                // >
+                //         <Text className="text-red-500">{t("welcome")}</Text>
+                // </Box>
+
+                <View>
                         <Text className="text-red-500">{t("welcome")}</Text>
-                </Box>
-        );
+                </View>
+        )
 }
+
+export default index
