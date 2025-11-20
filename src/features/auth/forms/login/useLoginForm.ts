@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { loginSchema } from "./schemas/login";
+import { loginSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
