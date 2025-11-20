@@ -15,11 +15,14 @@ export default function RootLayout() {
         useEffect(() => {
                 startMocks().then(() => setReady(true))
         }, []);
+        
         if (!ready) return null;
 
         return <QueryProvider>
                 <I18nextProvider i18n={i18n}>
-                        <Stack />
+                        <Stack screenOptions={{
+                                headerShown: false
+                        }}/>
                 </I18nextProvider>
         </QueryProvider>
 }
