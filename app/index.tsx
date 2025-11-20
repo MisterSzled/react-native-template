@@ -1,5 +1,5 @@
-import { Box } from "@/components/ui/box";
-import { Text } from "@/components/ui/text";
+import { Box } from "@/src/components/ui/box";
+import { Text } from "@/src/components/ui/text";
 import { useTranslation } from "react-i18next";
 
 const index = () => {

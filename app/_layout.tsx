@@ -7,7 +7,7 @@ import i18n from '@/src/i18n/index';
 import { QueryProvider } from "@/src/providers/query";
 import { useEffect, useState } from 'react';
 
-import { startMocks } from '@/config/msw/setup';
+import { startMocks } from '@/_config/msw/setup';
 
 export default function RootLayout() {
         const [ready, setReady] = useState(!__DEV__);
