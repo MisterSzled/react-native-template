@@ -3,6 +3,9 @@ import { Stack } from "expo-router";
 
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 
+import { I18nextProvider } from 'react-i18next';
+import i18n from '@/src/i18n';
+
 import { QueryProvider } from "@/src/providers/query";
 import { useEffect, useState } from 'react';
 
@@ -17,6 +20,8 @@ export default function RootLayout() {
         if (!ready) return null;
 
         return <QueryProvider>
-                <Stack />
+                <I18nextProvider i18n={i18n}>
+                        <Stack />
+                </I18nextProvider>
         </QueryProvider>
 }
