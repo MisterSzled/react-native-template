@@ -27,7 +27,7 @@ async function request<T>(url: string, options: RequestOptions = {}): Promise<T>
                         text = res.statusText || "Unknown error";
                 }
 
-                throw new Error(`${method} ${url} failed: ${res.status}`);
+                throw new Error(`${method} ${url} failed: ${res.status} - error: ${text}`);
         }
 
         return res.json() as Promise<T>;
@@ -49,6 +49,6 @@ export async function httpPatch<T>(url: string, body?: unknown): Promise<T> {
         return request<T>(url, { method: "PUT", body });
 }
 
-export async function httpDelete<T>(url: string, body?: unknown): Promise<T> {
-        return request<T>(url, { method: "DELETE", body });
+export async function httpDelete<T>(url: string): Promise<T> {
+        return request<T>(url, { method: "DELETE" });
 }

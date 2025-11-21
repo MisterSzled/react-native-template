@@ -1,10 +1,10 @@
 import { http, HttpResponse } from "msw";
-import { Product } from "./product.types.ts";
+import { Product } from "./product.schema";
 
 export const productMockApi = [
         http.get("./api/products", () => {
                 return HttpResponse.json([
-                        { name: "Test name", id: 1010101 }
+                        { name: "Test name", id: "1010101" }
                 ])
         }),
 

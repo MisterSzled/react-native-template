@@ -1,13 +1,16 @@
 import { apiClient } from "@/src/api/client";
-import { Product } from "./product.types.ts";
+import { Product, ProductsSchema, ProductSchema } from "./product.schema";
 
 export const productApi = {
-        products(): Promise<Product[]> {
-                
-                return apiClient.get(`/api/products`);
+        async products(): Promise<Product[]> {
+                const data = await apiClient.get(`/api/products`);
+                const parsed = ProductsSchema.parse(data);
+                return parsed;
         },
 
-        product(id: number): Promise<Product[]> {
-                return apiClient.get(`/api/products/${id}`);
+        async product(id: number): Promise<Product> {
+                const data = await apiClient.get(`/api/products/${id}`);
+                const parsed = ProductSchema.parse(data);
+                return parsed;
         },
 }
