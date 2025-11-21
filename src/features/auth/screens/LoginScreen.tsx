@@ -1,8 +1,6 @@
 import { useProducts } from "@/src/api/product/product.hooks";
-import { Box } from "@/src/components/ui/box";
-import { Text } from "@/src/components/ui/text";
-import ThemeToggle from "@/src/components/ui/theme_toggle";
 import { useTranslation } from "react-i18next";
+import { View } from "react-native";
 
 const index = () => {
         const { t } = useTranslation();
@@ -12,12 +10,9 @@ const index = () => {
         console.log(data)
 
         return (
-                <Box
-                        className="flex items-center justify-center h-full"
-                >
-                        <ThemeToggle />
-                        <Text className="text-red-500">{t("welcome")}</Text>
-                </Box>
+                <View className="w-1/2 bg-red-500 h-1/2">
+                        
+                </View>
         )
 }
 
