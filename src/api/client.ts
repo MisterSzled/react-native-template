@@ -1,11 +1,11 @@
-import { httpGet, httpPost } from "./http";
+import "./http/interceptor/interceptors/index";
+
+import { httpDelete, httpGet, httpPatch, httpPost, httpPut } from "./http/http";
 
 export const apiClient = {
-        async get<T>(url: string): Promise<T> {
-                return httpGet<T>(url);
-        },
-
-        async post<T>(url: string): Promise<T> {
-                return httpPost<T>(url);
-        }
+        get: httpGet,
+        post: httpPost,
+        put: httpPut,
+        patch: httpPatch,
+        delete: httpDelete
 }
