@@ -80,6 +80,8 @@
                 "setupFilesAfterEnv": [
                         "<rootDir>/jest.setup.ts"
                 ],
-                "transformIgnorePatterns": ["node_modules/(?!@gluestack-ui)/"]
+                "transformIgnorePatterns": [
+                        "node_modules/(?!@gluestack-ui)/"
+                ]
         }
 }
