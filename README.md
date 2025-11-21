@@ -3,28 +3,28 @@ Modern react-native template using domain-drive architecture.
 
 # Tech Stack
 
-## Framework & Routing
+- #### Framework & Routing
         - Expo
         - Expo Router 
 
-## UI / Design
+- #### UI / Design
         - Gluestack UI
         - Tailwind / Nativewind
 
-## State & Data
+- #### State & Data
         - React Query
         - Zustand
         - MMKV
 
-## Forms and Validation
+- #### Forms and Validation
         - React Hook Form
         - Zod
 
-## Internationalization
+- #### Internationalization
         - i18next
 
-## Network & Mocks
+- #### Network & Mocks
         - MSW
 
-## Testing
+- #### Testing
         - Jest
