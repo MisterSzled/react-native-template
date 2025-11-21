@@ -10,7 +10,7 @@ const index = () => {
         console.log(data)
 
         return (
-                <View className="w-1/2 bg-red-500 h-1/2">
+                <View >
                         
                 </View>
         )

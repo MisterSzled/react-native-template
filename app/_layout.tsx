@@ -1,4 +1,3 @@
-import '@/global.css';
 import { Stack } from "expo-router";
 
 import { I18nextProvider } from 'react-i18next';
