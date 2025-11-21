@@ -1,20 +1,15 @@
-import { productApi } from "@/src/api/products/product.api";
-import { Product } from "@/src/api/products/product.schema";
+import { useProducts } from "@/src/api/product/product.hooks";
 import { Box } from "@/src/components/ui/box";
 import { Text } from "@/src/components/ui/text";
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const index = () => {
         const { t } = useTranslation();
 
-        const [products, setProducts] = useState<Product[]>([]);
-        useEffect(() => { 
-                productApi.products().then(setProducts).catch(console.error); 
-        }, []);
+        const { data, isLoading, error } = useProducts();
 
-        console.log(products)
-        
+        console.log(data)
+
         return (
                 <Box
                         className="flex items-center justify-center h-full"

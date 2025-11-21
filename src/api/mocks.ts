@@ -1,6 +1,6 @@
 import { setupServer } from "msw/native";
 
-import { productMockApi } from "./products/product.mocks";
+import { productMockApi } from "./product/product.mocks";
 
 export const allMockApi = [
         ...productMockApi
