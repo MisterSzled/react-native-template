@@ -4,7 +4,7 @@
 
 import { ReactNode } from 'react';
 import { createTamagui, TamaguiProvider } from "tamagui";
-import { config } from "../../_config/tamagui.config.ts";
+import { config } from "../../_config/tamagui/tamagui.config.ts";
 
 const tamagui_config = createTamagui(config);
 type Conf = typeof tamagui_config

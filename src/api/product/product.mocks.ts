@@ -1,5 +1,4 @@
 import { http, HttpResponse } from "msw";
-import { Product } from "./product.schema";
 
 export const productMockApi = [
         http.get("./api/products", () => {
