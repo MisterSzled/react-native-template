@@ -1,3 +1,4 @@
+import { registerMocks } from "@src/api/mock/registry";
 import { http, HttpResponse } from "msw";
 
 export const productMockApi = [
@@ -14,3 +15,5 @@ export const productMockApi = [
                 ])
         })
 ]
+
+registerMocks(() => productMockApi);

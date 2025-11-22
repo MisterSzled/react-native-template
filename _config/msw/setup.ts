@@ -3,7 +3,7 @@ export async function enableMocking() {
 
         await import("./msw.polyfills");
 
-        const { mockServer } = await import("@/src/api/mocks.ts");
+        const { mockServer } = await import("@/src/api/mock/mocks");
 
         mockServer.listen({
                 onUnhandledRequest: "bypass"
