@@ -2,7 +2,15 @@ module.exports = function (api) {
         api.cache(true);
 
         return {
-                presets: [['babel-preset-expo']],
+                presets: [
+                        [
+                                'babel-preset-expo',
+                                {       
+                                        // https://github.com/expo/expo/issues/36384
+                                        unstable_transformImportMeta: true,
+                                },
+                        ],
+                ],
 
                 plugins: [
                         [

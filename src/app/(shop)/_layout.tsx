@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router"
+import { Tabs } from "expo-router";
 
 const _layout = () => {
         return (

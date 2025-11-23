@@ -1,4 +1,4 @@
-import { useProducts } from "@/src/features/product/api/product.hooks";
+import { useProducts } from "@/src/features/product/hooks/useProducts";
 import { useTranslation } from "react-i18next";
 import { Button, View } from "tamagui";
 

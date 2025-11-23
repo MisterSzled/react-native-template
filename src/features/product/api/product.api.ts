@@ -1,5 +1,5 @@
 import { apiClient } from "@/src/api/client";
-import { Product, ProductsSchema, ProductSchema } from "./product.schema";
+import { Product, ProductSchema, ProductsSchema } from "../schema";
 
 export const productApi = {
         async products(): Promise<Product[]> {
