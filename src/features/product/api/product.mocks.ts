@@ -5,14 +5,18 @@ export const productMockApi = [
         http.get("/api/products", () => {
                 return HttpResponse.json([
                         { name: "Test name", id: "1010101" }
-                ])
+                ], {
+                        status: 200
+                })
         }),
 
         http.get("/api/product/:id", ({ params }) => {
                 const id = Number(params.id);
                 return HttpResponse.json([
                         { name: "Test name", id: id }
-                ])
+                ], {
+                        status: 200
+                })
         })
 ]
 

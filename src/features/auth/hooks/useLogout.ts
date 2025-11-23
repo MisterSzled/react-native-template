@@ -10,9 +10,9 @@ export function useLogout() {
                 mutationFn: () => 
                         authApi.logout(),
 
-                onSuccess: (data) => {
+                onSuccess: () => {
                         authStore();
-                        router.replace("/(shop)/shop")
+                        router.replace("/")
                 }
         })
 }

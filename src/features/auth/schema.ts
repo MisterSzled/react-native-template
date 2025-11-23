@@ -1,9 +1,20 @@
 import { z } from "zod";
 
-export const AuthResponse = z.object({
+
+export const LoginRequestSchema = z.object({
+        username: z.string(),
+        password: z.string()
+});
+export type LoginRequest = z.infer<typeof LoginRequestSchema>;
+export const LoginResponseSchema = z.object({
         token: z.string(),
-        userId: z.string().or(z.number()),
+        userId: z.string(),
         username: z.string()
 });
+export type LoginResponse = z.infer<typeof LoginResponseSchema>;
 
-export type AuthResponse = z.infer<typeof AuthResponse>;
+
+export const LogoutRequestSchema = z.object({});
+export type LogoutRequest = z.infer<typeof LogoutRequestSchema>;
+export const LogoutResponseSchema = z.object({});
+export type LogoutResponse = z.infer<typeof LogoutResponseSchema>;
