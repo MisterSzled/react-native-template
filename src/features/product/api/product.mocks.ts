@@ -1,23 +1,25 @@
+import { HTTP_STATUS } from "@/src/api/http/codes";
+import { build_mock } from "@/src/api/mock/factory";
 import { registerMocks } from "@src/api/mock/registry";
-import { http, HttpResponse } from "msw";
+import { API_ROUTES } from "./product.routes";
 
 export const productMockApi = [
-        http.get("/api/products", () => {
-                return HttpResponse.json([
-                        { name: "Test name", id: "1010101" }
-                ], {
-                        status: 200
-                })
-        }),
+        build_mock.with_status(
+                API_ROUTES.PRODUCTS,
+                "GET",
+                async () => ([{ name: "Test name", id: "1010101" }]),
+                HTTP_STATUS.OK
+        ),
 
-        http.get("/api/product/:id", ({ params }) => {
-                const id = Number(params.id);
-                return HttpResponse.json([
-                        { name: "Test name", id: id }
-                ], {
-                        status: 200
-                })
-        })
+        build_mock.with_status(
+                API_ROUTES.PRODUCT_PATTERN,
+                "GET",
+                async ({ params }) => {
+                        const id = Number(params.id);
+                        return ({ name: "Test name", id: id })
+                },
+                HTTP_STATUS.OK
+        )
 ]
 
 registerMocks(() => productMockApi);

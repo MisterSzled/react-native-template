@@ -1,8 +1,7 @@
+import { HTTP_METHOD } from "./codes";
 import { applyInterceptors, HttpRequestConfig } from "./interceptor/interceptor";
 
-type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-
-async function request<T>(method: HttpMethod, url: string, body?: any): Promise<T> {
+async function request<T>(method: HTTP_METHOD, url: string, body?: any): Promise<T> {
         let config: HttpRequestConfig = { method, url };
 
         if (body) {

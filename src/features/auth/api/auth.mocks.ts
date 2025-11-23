@@ -1,33 +1,34 @@
+import { HTTP_STATUS } from "@/src/api/http/codes";
 import { registerMocks } from "@src/api/mock/registry";
-import { http, HttpResponse } from "msw";
-import { LoginRequest, LogoutResponse } from "../schema";
+import { LoginRequest } from "../schema";
+import { API_ROUTES } from "./auth.routes";
+import { build_mock } from "@/src/api/mock/factory";
 
 export const authMockApi = [
-        http.post("/api/auth/login", async ({ request }) => {
-                const { username, password } = await request.json() as LoginRequest;
-                if (username === "demo" && password === "demo") {
-                        return HttpResponse.json({
-                                token: "demo",
-                                userId: "demo",
-                                username: "Demoman"
-                        }, {
-                                status: 200
-                        });
-                }
-
-                return HttpResponse.json(
-                        {
-                                message: "User not found or authorized"
-                        },
-                        {
-                                status: 401
+        build_mock.with_status(
+                API_ROUTES.LOGIN,
+                "POST",
+                async ({ request }) => {
+                        const { username, password } = await request.json() as LoginRequest;
+                        if (username === "demo" && password === "demo") {
+                                return {
+                                        token: "demo",
+                                        userId: "demo",
+                                        username: "Demoman"
+                                }
                         }
-                );
-        }),
-        http.post("/api/auth/logout", async ({ request }) => {
-                const response: LogoutResponse = {}
-                return HttpResponse.json(response, { status: 200 });
-        }),
+
+                        return build_mock.with_error(HTTP_STATUS.UNAUTHORIZED, "User not found or authorized");
+                },
+                HTTP_STATUS.OK
+        ),
+
+        build_mock.with_status(
+                API_ROUTES.LOGOUT,
+                "GET",
+                async ({request}) => ({}),
+                HTTP_STATUS.OK 
+        )
 ]
 
 registerMocks(() => authMockApi);
