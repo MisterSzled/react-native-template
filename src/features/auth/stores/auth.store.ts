@@ -33,7 +33,6 @@ export const authStore = create<AuthStore>()(
                         userId: null,
 
                         login: (token: string, userId?: string | number) => {
-                                console.log("Inside store")
                                 set({
                                         token,
                                         isAuthenticated: true,

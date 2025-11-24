@@ -1,3 +1,6 @@
-import { HandlerContext, mock } from "@/src/api/mock/factory";
+import { HandlerContext } from "@/src/api/mock/factory";
 
-export const logout = async (_: HandlerContext) => ({})
+export const logout = {
+        delay: 0,
+        handler: async (_: HandlerContext) => ({})
+};
