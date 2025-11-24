@@ -7,9 +7,6 @@ const index = () => {
         const { t } = useTranslation();
         const { mutate: login, isPending } = useLogin();
 
-        const { data, isLoading, error } = useProducts();
-        console.log(data)
-
         const handleLogin = () => {
                 login({
                         username: "demo",

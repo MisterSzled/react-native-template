@@ -6,4 +6,5 @@ import "@src/features/product/api/product.mocks";
 import "@src/features/auth/api/auth.mocks";
 
 export const allMockApi = getMocks();
+
 export const mockServer = setupServer(...allMockApi);
