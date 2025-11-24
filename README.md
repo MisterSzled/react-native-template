@@ -1,40 +1,57 @@
-# React-native Template
-Modern react-native template using feature-domain-driven architecture.
+# React Native Template
 
-- #### Framework & Routing
-        - Expo
-        - Expo Router 
+A modern React Native template built with a feature-driven domain architecture.
 
-- #### UI / Design
-        - Tamagui
+Framework & Routing
+- Expo
+- Expo Router
 
-- #### State & Data
-        - React Query
-        - Zustand
-        - MMKV
+UI / Design
+- Tamagui
 
-- #### Forms and Validation
-        - React Hook Form
-        - Zod
+State & Data
+- React Query (server state)
+- Zustand (local state)
+- MMKV (high-performance storage)
 
-- #### Internationalization
-        - i18next
+Forms & Validation
+- React Hook Form
+- Zod
 
-- #### Network & Mocks
-        - MSW
+Internationalization
+- i18next
 
-- #### Testing
-        - Jest
+Network & Mocking
+- MSW (Mock Service Worker)
 
-# Guide
+Testing
+- Jest
 
-## Api
-### I want to add a new call in a page
-        - Add a new contract in your feature domain: "src/features/{domain}/api/{domain}.contract.ts"
-        - Implement the contract concretely in "src/features/{domain}/api/{domain}.api.ts"
+------------------------------------------------------------
 
-        - Implement the mocks in "src/features/{domain}/api/{domain}.mock.ts" and the specific mocks in "src/features/{domain}/api/mocks/{call_name}.ts"
-        - Register the mocks with an new import in the mocks registry at: "src/api/mock/mocks.ts"
+## Guide
 
-        - Add the react query capable hook in "src/features/{domain}/hooks/use{call_name}.ts"
-        - Add a call to the hook in your page e.g. "const { data, isLoading, error } = useProducts();"
+### API
+
+Adding a New API Call in a Feature Domain
+
+- Create a contract describing request/response types:
+   src/features/{domain}/api/{domain}.contract.ts
+
+- Implement the contract:
+   src/features/{domain}/api/{domain}.api.ts
+
+- - Add default mocks:
+     src/features/{domain}/api/{domain}.mock.ts
+   - Add specific call mocks:
+     src/features/{domain}/api/mocks/{call_name}.ts
+   - Register mocks in the mock registry:
+     src/api/mock/mocks.ts
+
+- Create a hook wrapping your API call:
+   src/features/{domain}/hooks/use{CallName}.ts
+
+- Use the Hook in Your Page/Component
+   const { data, isLoading, error } = useProducts();
+
+------------------------------------------------------------
