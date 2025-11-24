@@ -50,9 +50,10 @@ export const authStore = create<AuthStore>()(
                         },
 
                         setToken: (token: string | null) => {
+                                const clean_token = token && token !== null && token !== "" ? token : null 
                                 set({
-                                        token,
-                                        isAuthenticated: Boolean(token)
+                                        token: clean_token,
+                                        isAuthenticated: clean_token !== null
                                 })
                         }
                 }),

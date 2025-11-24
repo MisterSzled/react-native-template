@@ -7,19 +7,20 @@ import Tamagui from "@/src/providers/Tamagui";
 import { useAuth } from "../features/auth/hooks/useAuth";
 
 export default function RootLayout() {
-        const isAuthenticated = useAuth((s) => s.isAuthenticated)
+        const { isAuthenticated } = useAuth((s) => s)
+        console.log(isAuthenticated)
 
         return <Msw>
                 <Query>
                         <Tamagui >
                                 <I18next >
-                                        <Stack screenOptions={{ headerShown: false}} >
-                                                
+                                        <Stack screenOptions={{ headerShown: false }} >
+
                                                 {/* Public */}
-                                                <Stack.Screen name="index"/>
+                                                <Stack.Screen name="index" />
 
                                                 {/* Private */}
-                                                <Stack.Screen name="(shop)" redirect={!isAuthenticated}/>
+                                                <Stack.Screen name="(shop)" redirect={!isAuthenticated} />
                                         </Stack>
                                 </I18next>
                         </Tamagui>

@@ -1,12 +1,18 @@
+import { useAuth } from "@src/features/auth/hooks/useAuth";
+import { useLogin } from "@src/features/auth/hooks/useLogin";
+import { Redirect } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { Button } from "tamagui";
-import { useLogin } from "../features/auth/hooks/useLogin";
-import { useProducts } from "../features/product/hooks/useProducts";
 
 const index = () => {
         const { t } = useTranslation();
-        const { mutate: login, isPending } = useLogin();
 
+        const { isAuthenticated } = useAuth((s) => s);
+        if (isAuthenticated) {
+                return <Redirect href="/(shop)/shop" />
+        }
+
+        const { mutate: login, isPending } = useLogin();
         const handleLogin = () => {
                 login({
                         username: "demo",
