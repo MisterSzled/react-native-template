@@ -3,10 +3,10 @@ import { HttpHandler } from "msw";
 type MockProvider = () => HttpHandler[];
 const registry: MockProvider[] = [];
 
-export const registerMocks = (provider: MockProvider) => {
+export const register_mocks = (provider: MockProvider) => {
         registry.push(provider);
-} 
+}
 
-export const getMocks = (): HttpHandler[] => {
+export const get_mocks = (): HttpHandler[] => {
         return registry.flatMap((provider) => provider());
 }

@@ -1,10 +1,10 @@
 import { setupServer } from "msw/native";
-import { getMocks } from "./registry";
+import { get_mocks } from "./registry";
 
 // Trigger registers
-import "@src/features/product/api/product.mocks";
 import "@src/features/auth/api/auth.mocks";
+import "@src/features/product/api/product.mocks";
 
-export const allMockApi = getMocks();
+export const allMockApi = get_mocks();
 
 export const mockServer = setupServer(...allMockApi);

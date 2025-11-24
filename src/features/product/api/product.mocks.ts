@@ -1,15 +1,15 @@
 import { create_mocks_from_contract } from "@/src/api/mock/factory";
-import { registerMocks } from "@src/api/mock/registry";
+import { register_mocks } from "@src/api/mock/registry";
 import { contract } from "./product.contract";
 
-export const productMocks = {
-        products: async () => {
-                return [{ name: "Test name", id: "1010101" }]
-        },
+import { products } from "./mocks/products";
+import { product } from "./mocks/product";
 
-        product: async () => ({ name: "Test name", id: "1010101" })
+export const productMocks = {
+        products: products,
+        product: product
 };
 
 export const productMockApi = create_mocks_from_contract(contract, productMocks)
 
-registerMocks(() => productMockApi);
+register_mocks(() => productMockApi);

@@ -1,30 +1,15 @@
-import { HTTP_STATUS } from "@/src/api/http/codes";
-import { create_mocks_from_contract, HandlerContext, mock } from "@/src/api/mock/factory";
-import { registerMocks } from "@src/api/mock/registry";
-import { LoginRequest } from "../schema";
+import { create_mocks_from_contract } from "@/src/api/mock/factory";
+import { register_mocks } from "@src/api/mock/registry";
 import { contract } from "./auth.contract";
 
+import { login } from "./mocks/login";
+import { logout } from "./mocks/logout";
+
 export const authMocks = {
-        login: async (context: HandlerContext) => {
-                const { username, password } = await context.request.json() as LoginRequest;
-                if (username === "demo" && password === "demo") {
-                        return {
-                                token: "demo",
-                                userId: "demo",
-                                username: "Demoman"
-                        }
-                }
-
-                return mock.error(HTTP_STATUS.UNAUTHORIZED, "User not found or authorized");
-        },
-
-        logout: async () => {
-                return {
-
-                }
-        }
+        login: login,
+        logout: logout,
 }
 
-export const authMockApi = create_mocks_from_contract(contract, authMocks)
+export const authMockApi = create_mocks_from_contract(contract, authMocks);
 
-registerMocks(() => authMockApi);
+register_mocks(() => authMockApi);

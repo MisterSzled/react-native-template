@@ -70,13 +70,16 @@ export const mock = {
                 return this.request("GET", route, handler, status)
         },
         post(route: string, handler: Handler, status = HTTP_STATUS.OK) {
-                return this.request("GET", route, handler, status)
+                return this.request("POST", route, handler, status)
         },
         put(route: string, handler: Handler, status = HTTP_STATUS.OK) {
-                return this.request("GET", route, handler, status)
+                return this.request("PUT", route, handler, status)
+        },
+        patch(route: string, handler: Handler, status = HTTP_STATUS.OK) {
+                return this.request("PATCH", route, handler, status)
         },
         delete(route: string, handler: Handler, status = HTTP_STATUS.OK) {
-                return this.request("GET", route, handler, status)
+                return this.request("DELETE", route, handler, status)
         },
         error(status: number, message: string) {
                 return HttpResponse.json({ message }, { status });
