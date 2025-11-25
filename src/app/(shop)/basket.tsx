@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
-import { Button, View } from "tamagui";
+import { Pressable, View } from "react-native";
 
 const index = () => {
         const { t } = useTranslation()
         return (
-                <View width={"$10"}>
-                        <Button>{t("login.basket")}</Button>
+                <View >
+                        <Pressable>{t("login.basket")}</Pressable>
                 </View>
         )
 }

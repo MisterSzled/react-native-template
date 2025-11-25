@@ -5,7 +5,7 @@ module.exports = function (api) {
                 presets: [
                         [
                                 'babel-preset-expo',
-                                {       
+                                {
                                         // https://github.com/expo/expo/issues/36384
                                         unstable_transformImportMeta: true,
                                 },
@@ -25,6 +25,9 @@ module.exports = function (api) {
                                 },
                         ],
                         'react-native-worklets/plugin',
+                        ['react-native-unistyles/plugin', {
+                                root: 'src'
+                        }]
                 ],
         };
 };

@@ -10,16 +10,12 @@
                                 "./src/*"
                         ]
                 },
-                "types": [
-                        "tamagui"
-                ],
                 "allowImportingTsExtensions": true
         },
         "include": [
                 "**/*.ts",
                 "**/*.tsx",
                 ".expo/types/**/*.ts",
-                "expo-env.d.ts",
-                "_config/tamagui/tamagui.d.ts"
+                "expo-env.d.ts"
         ]
 }

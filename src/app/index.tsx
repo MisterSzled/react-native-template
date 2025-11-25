@@ -1,10 +1,9 @@
-// import IconButton from "@src/components/atoms/IconButton";
 import { useAuth } from "@src/features/auth/hooks/useAuth";
 import { useLogin } from "@src/features/auth/hooks/useLogin";
 import { Redirect } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Button, YStack } from "tamagui";
-import XButton from "@src/components/atoms/Button";
+import { Pressable, Text, View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
 
 const index = () => {
         const { t } = useTranslation();
@@ -23,31 +22,37 @@ const index = () => {
         }
 
         return (
-                <YStack
-                        flex={1}
-                        justify={"center"}
-                        items={"center"}
+                <View
+                        style={styles.container}
                 >
-                        {/* <IconButton
-                                loading={isPending}
-                                size={"$6"}
-                                onPress={handleLogin}
-                                fontWeight={"600"}
-                                bordered
-                                borderWidth={"$1"}
-                        >
-                                {t("login.title")}
-                        </IconButton> */}
-                        {/* <Button backgroundColor={"$color10"}> */}
-                        <Button size={"$7"} >
-                                {t("login.title")}
-                        </Button>
-                        {/* <XButton >
-                                {t("login.title")}
-                        </XButton> */}
-                </YStack>
+                        <Pressable style={styles.pressable} onPress={handleLogin}>
+                                <Text>{t("login.title")}</Text>
+                        </Pressable>
+                </View>
 
         )
 }
+
+const styles = StyleSheet.create(({ colors, tokens }) => ({
+        stack: {
+                flex: 1,
+                backgroundColor: "red"
+        },
+        container: {
+                backgroundColor: colors.base_100,
+                justifyContent: "center",
+                alignItems: "center",
+                flex: 1,
+        },
+        pressable: {
+                backgroundColor: colors.neutral,
+                justifyContent: "center",
+                alignItems: "center",
+                paddingHorizontal: tokens.spacing["2xl"],
+                paddingVertical: tokens.spacing["xl"],
+                borderRadius: tokens.radius.md,
+                fontSize: tokens.fontSize.lg
+        }
+}));
 
 export default index

@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 
+import "@/unistyles.config";
 import { useAuth } from "../features/auth/hooks/useAuth";
 import Providers from "../providers/Providers";
 
@@ -8,7 +9,6 @@ export default function RootLayout() {
 
         return <Providers>
                 <Stack screenOptions={{ headerShown: false }} >
-
                         {/* Public */}
                         <Stack.Screen name="index" />
 

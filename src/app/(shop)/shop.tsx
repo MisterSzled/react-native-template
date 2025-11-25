@@ -1,7 +1,7 @@
 import { useLogout } from "@/src/features/auth/hooks/useLogout";
 import { useProducts } from "@/src/features/product/hooks/useProducts";
 import { useTranslation } from "react-i18next";
-import { Button, View } from "tamagui";
+import { Pressable, View } from "react-native";
 
 const index = () => {
         const { t } = useTranslation();
@@ -14,8 +14,8 @@ const index = () => {
         }
 
         return (
-                <View width={"$10"}>
-                        <Button onPress={handleLogout}>{t("login.shop")}</Button>
+                <View >
+                        <Pressable onPress={handleLogout}>{t("login.shop")}</Pressable>
                 </View>
         )
 }
