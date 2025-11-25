@@ -15,7 +15,7 @@ declare module '@tamagui/core' {
 
 export default function Tamagui({ children }: { children: ReactNode }) {
 
-        return <TamaguiProvider config={tamagui_config}>
+        return <TamaguiProvider config={tamagui_config} >
                 {children}
         </TamaguiProvider>
 }
