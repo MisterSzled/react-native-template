@@ -130,11 +130,18 @@ export const tokens = {
 
 
         icon: {
-                xs: 12,
-                sm: 16,
-                md: 20,
-                lg: 24,
-                xl: 28,
+                stroke_width: {
+                        sm: 1,
+                        md: 2,
+                        lg: 2.5,
+                },
+                sizes: {
+                        xs: 12,
+                        sm: 16,
+                        md: 20,
+                        lg: 24,
+                        xl: 28,
+                }
         },
 
         touchable: {

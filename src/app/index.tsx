@@ -4,6 +4,8 @@ import { Redirect } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
+import Button from "@src/components/atoms/Button";
+import { ArrowRight } from 'iconoir-react-native';
 
 const index = () => {
         const { t } = useTranslation();
@@ -25,9 +27,15 @@ const index = () => {
                 <View
                         style={styles.container}
                 >
-                        <Pressable style={styles.pressable} onPress={handleLogin}>
-                                <Text>{t("login.title")}</Text>
-                        </Pressable>
+
+                        <Button.Root isLoading={isPending} onPress={handleLogin}>
+                                <Button.Text>
+                                {t("login.title")}
+                                </Button.Text>
+                                <Button.Icon>
+                                        <ArrowRight  />
+                                </Button.Icon>
+                        </Button.Root>
                 </View>
 
         )
