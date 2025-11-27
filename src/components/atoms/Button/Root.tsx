@@ -1,7 +1,9 @@
 import { PropsWithChildren } from 'react';
 import { ActivityIndicator, Pressable, PressableProps, StyleProp, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { ButtonContext, ButtonVariant } from './context';
+import { ButtonContext } from './context';
+import { ButtonVariant } from './variants';
+import { variants } from './variants';
 
 interface RootProps extends PropsWithChildren {
         isLoading?: boolean,
@@ -22,20 +24,28 @@ const Root = ({
                 <Pressable
                         onPress={onPress}
                         style={({ pressed, hovered }) => [
-                                root_styles.root,
-                                disabled && root_styles.disabled,
-                                hovered && !disabled && root_styles.hovered,
-                                pressed && !disabled && root_styles.pressed,
+                                base_styles.root,
+                                variants[variant].root,
+                                disabled && base_styles.disabled,
+                                hovered && !disabled && variants[variant].hovered,
+                                pressed && !disabled && variants[variant].pressed,
                                 styles
                         ]}
                 >
-                        <View style={root_styles.container}>
+                        <View style={[base_styles.container, variants[variant].container]}>
                                 {isLoading &&
-                                        <View style={root_styles.spinner_container}>
+                                        <View style={[
+                                                base_styles.spinner,
+                                                variants[variant].spinner
+                                        ]}>
                                                 <ActivityIndicator />
                                         </View>
                                 }
-                                <View style={[root_styles.root, { opacity: isLoading ? 0.05 : 1 }]}>
+                                <View style={[
+                                        base_styles.children, 
+                                        variants[variant].children, 
+                                        { opacity: isLoading ? 0.05 : 1 }
+                                ]}>
                                         {children}
                                 </View>
                         </View>
@@ -44,31 +54,25 @@ const Root = ({
         </ButtonContext.Provider>
 }
 
-const root_styles = StyleSheet.create(({ colors, tokens }) => ({
+const base_styles = StyleSheet.create(({ colors, tokens }) => ({
         root: {
                 flexDirection: "row",
-                borderRadius: tokens.radius.md,
         },
         container: {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: colors.neutral,
-                paddingVertical: tokens.spacing.md,
-                paddingHorizontal: tokens.spacing.lg,
-                borderRadius: tokens.radius.md,
                 overflow: "hidden"
+        },
+        children: {
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
         },
         disabled: {
                 opacity: tokens.opacity.disabled
         },
-        pressed: {
-                backgroundColor: colors.base_200
-        },
-        hovered: {
-                backgroundColor: colors.base_300
-        },
-        spinner_container: {
+        spinner: {
                 position: "absolute",
                 left: 0,
                 right: 0,

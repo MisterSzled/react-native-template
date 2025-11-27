@@ -28,9 +28,9 @@ const index = () => {
                         style={styles.container}
                 >
 
-                        <Button.Root isLoading={isPending} onPress={handleLogin}>
+                        <Button.Root isLoading={isPending} onPress={handleLogin} variant="neobrutalism">
                                 <Button.Text>
-                                {t("login.title")}
+                                        {t("login.title")}
                                 </Button.Text>
                                 <Button.Icon>
                                         <ArrowRight  />

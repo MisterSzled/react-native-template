@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
+import { ButtonVariant } from './variants';
 
-export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type ButtonContextProps = {
         isLoading: boolean;
         disabled: boolean;
