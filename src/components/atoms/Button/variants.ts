@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native-unistyles';
-import chroma from "chroma-js";
 
 export const primary = StyleSheet.create(({ colors, tokens }) => ({
         root: {
@@ -101,8 +100,7 @@ export const neobrutalism = StyleSheet.create(({ colors, tokens }) => ({
         }
 }));
 
-export const variants
-        = {
+export const variants = {
         primary: primary,
         secondary: secondary,
         ghost: ghost,

@@ -14,6 +14,7 @@ export function useLogin() {
                 onSuccess: (data) => {
                         authStore(data.token, data.userId);
                         router.replace("/(shop)/shop")
-                }
+                },
+                
         })
 }

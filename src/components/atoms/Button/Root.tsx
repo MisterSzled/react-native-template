@@ -1,6 +1,5 @@
 import { PropsWithChildren } from 'react';
 import { ActivityIndicator, Pressable, PressableProps, StyleProp, View } from 'react-native';
-import Animated from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { ButtonContext } from './context';
 import { ButtonVariant, variants } from './variants';
@@ -20,10 +19,9 @@ const Root = ({
         variant = "primary",
         styles
 }: RootProps) => {
-
         return <ButtonContext.Provider value={{ isLoading, disabled, variant }}>
-                <Pressable>
-                        <Animated.View style={[
+                <Pressable onPress={onPress}  >
+                        <View style={[
                                 base_styles.container,
                                 variants[variant].root,
                                 variants[variant].container,
@@ -41,22 +39,20 @@ const Root = ({
                                 <View style={[
                                         base_styles.children,
                                         variants[variant].children,
-                                        { opacity: isLoading ? 0.05 : 1 }
+                                        { opacity: isLoading ? 0 : 1 }
                                 ]}>
                                         {children}
                                 </View>
-                        </Animated.View>
-
+                        </View>
                 </Pressable>
         </ButtonContext.Provider>
 }
 
-const base_styles = StyleSheet.create(({ colors, tokens }) => ({
+const base_styles = StyleSheet.create(({ tokens }) => ({
         container: {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "center",
-                overflow: "hidden"
         },
         children: {
                 flexDirection: "row",
