@@ -84,14 +84,6 @@ export const neobrutalism = StyleSheet.create(({ colors, tokens }) => ({
                 borderRadius: tokens.radius.md,
                 borderWidth: tokens.borderWidth.regular,
                 borderColor: "black",
-                
-                shadowColor: "black",
-                shadowOffset: {
-                        width: 0,
-                        height: tokens.spacing.xs,
-                },
-                shadowOpacity: 1,
-                shadowRadius: tokens.radius.none
         },
         container: {
                 borderRadius: tokens.radius.md,
@@ -102,27 +94,6 @@ export const neobrutalism = StyleSheet.create(({ colors, tokens }) => ({
         },
         spinner: {
 
-        },
-        pressed: {
-                shadowOffset: {
-                        width: 0,
-                        height: 0,
-                },
-
-                transform: [
-                        { translateX: 0 }, 
-                        { translateY: 4 }
-                ]
-        },
-        hovered: {
-                transform: [
-                        { translateX: 0 }, 
-                        { translateY: -2 }
-                ],
-                shadowOffset: {
-                        width: 0,
-                        height: 6,
-                },
         },
         text: {
                 color: colors.neutral_content,

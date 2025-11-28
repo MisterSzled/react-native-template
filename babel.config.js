@@ -24,10 +24,10 @@ module.exports = function (api) {
                                         },
                                 },
                         ],
-                        'react-native-worklets/plugin',
                         ['react-native-unistyles/plugin', {
                                 root: 'src'
-                        }]
+                        }],
+                        'react-native-worklets/plugin'
                 ],
         };
 };

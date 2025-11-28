@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react';
 import { ActivityIndicator, Pressable, PressableProps, StyleProp, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { ButtonContext } from './context';
-import { ButtonVariant } from './variants';
-import { variants } from './variants';
+import { ButtonVariant, variants } from './variants';
 
 interface RootProps extends PropsWithChildren {
         isLoading?: boolean,
@@ -20,19 +20,16 @@ const Root = ({
         variant = "primary",
         styles
 }: RootProps) => {
+
         return <ButtonContext.Provider value={{ isLoading, disabled, variant }}>
-                <Pressable
-                        onPress={onPress}
-                        style={({ pressed, hovered }) => [
-                                base_styles.root,
+                <Pressable>
+                        <Animated.View style={[
+                                base_styles.container,
                                 variants[variant].root,
+                                variants[variant].container,
                                 disabled && base_styles.disabled,
-                                hovered && !disabled && variants[variant].hovered,
-                                pressed && !disabled && variants[variant].pressed,
-                                styles
-                        ]}
-                >
-                        <View style={[base_styles.container, variants[variant].container]}>
+                                styles,
+                        ]}>
                                 {isLoading &&
                                         <View style={[
                                                 base_styles.spinner,
@@ -42,22 +39,19 @@ const Root = ({
                                         </View>
                                 }
                                 <View style={[
-                                        base_styles.children, 
-                                        variants[variant].children, 
+                                        base_styles.children,
+                                        variants[variant].children,
                                         { opacity: isLoading ? 0.05 : 1 }
                                 ]}>
                                         {children}
                                 </View>
-                        </View>
+                        </Animated.View>
 
                 </Pressable>
         </ButtonContext.Provider>
 }
 
 const base_styles = StyleSheet.create(({ colors, tokens }) => ({
-        root: {
-                flexDirection: "row",
-        },
         container: {
                 flexDirection: "row",
                 alignItems: "center",
