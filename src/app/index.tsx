@@ -1,11 +1,12 @@
+import AnimatedButton from "@/src/components/molecules/AnimatedButton";
+import Button from "@src/components/atoms/Button";
 import { useAuth } from "@src/features/auth/hooks/useAuth";
 import { useLogin } from "@src/features/auth/hooks/useLogin";
 import { Redirect } from "expo-router";
-import { useTranslation } from "react-i18next";
-import { Pressable, Text, View } from "react-native";
-import { StyleSheet } from "react-native-unistyles";
-import Button from "@src/components/atoms/Button";
 import { ArrowRight } from 'iconoir-react-native';
+import { useTranslation } from "react-i18next";
+import { View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
 
 const index = () => {
         const { t } = useTranslation();
@@ -28,14 +29,20 @@ const index = () => {
                         style={styles.container}
                 >
 
-                        <Button.Root isLoading={isPending} onPress={handleLogin} >
+                        <Button.Root isLoading={isPending} onPress={handleLogin}>
                                 <Button.Text>
                                         {t("login.title")}
                                 </Button.Text>
                                 <Button.Icon>
-                                        <ArrowRight  />
+                                        <ArrowRight />
                                 </Button.Icon>
                         </Button.Root>
+
+                        <View style={{margin: 10}}/>
+
+                        <AnimatedButton.Root isLoading={isPending} onPress={handleLogin} icon={<ArrowRight />}>
+                                {t("login.title")}
+                        </AnimatedButton.Root>
                 </View>
 
         )

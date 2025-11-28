@@ -1,7 +1,7 @@
-import { useSharedValue, withTiming } from 'react-native-reanimated';
+import { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { ButtonAnimationInfo } from './types';
 
-function bounce(): ButtonAnimationInfo {
+export function bounce(): ButtonAnimationInfo {
         const animating = useSharedValue(false);
         const translateY = useSharedValue(0);
 
@@ -14,10 +14,13 @@ function bounce(): ButtonAnimationInfo {
                 })
         }
 
+        const animatedStyle = useAnimatedStyle(() => ({
+                transform: [{ translateY: translateY.value }],
+        }));
+
         return {
-                animatedStyle: { transform: [{ translateY }] },
+                animatedStyle,
                 pressIn,
                 pressOut: undefined,
-                needsBackdrop: true
         }
 }

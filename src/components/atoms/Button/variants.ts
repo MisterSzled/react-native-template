@@ -87,7 +87,7 @@ export const neobrutalism = StyleSheet.create(({ colors, tokens }) => ({
         container: {
                 borderRadius: tokens.radius.md,
                 paddingVertical: tokens.spacing.md,
-                paddingHorizontal: tokens.spacing.xl,
+                paddingHorizontal: tokens.spacing.lg,
         },
         children: {
         },

@@ -20,6 +20,9 @@ export const neobrutalism = StyleSheet.create(({ colors, tokens }) => ({
         text: {
                 color: colors.neutral_content,
                 fontWeight: tokens.fontWeight.black
+        },
+        activity: {
+                color: "block"
         }
 }));
 
@@ -27,5 +30,5 @@ export const variants = {
         neobrutalism: neobrutalism,
 }
 
-export type ButtonVariantStyles = typeof neobrutalism;
-export type ButtonVariant = keyof typeof variants;
+export type AnimatedButtonVariantStyles = typeof neobrutalism;
+export type AnimatedButtonVariant = keyof typeof variants;

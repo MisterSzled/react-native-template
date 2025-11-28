@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { ActivityIndicator, Pressable, PressableProps, StyleProp, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleProp, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ButtonContext } from './context';
 import { ButtonVariant, variants } from './variants';
@@ -8,19 +8,23 @@ interface RootProps extends PropsWithChildren {
         isLoading?: boolean,
         disabled?: boolean,
         onPress?: () => void,
+        onPressIn?: () => void,
+        onPressOut?: () => void,
         variant?: ButtonVariant,
-        styles?: StyleProp<PressableProps>
+        styles?: StyleProp<ViewStyle>
 }
 const Root = ({
         children,
         isLoading = false,
         disabled = false,
         onPress,
+        onPressIn,
+        onPressOut,
         variant = "primary",
         styles
 }: RootProps) => {
         return <ButtonContext.Provider value={{ isLoading, disabled, variant }}>
-                <Pressable onPress={onPress}  >
+                <Pressable onPress={onPress} onPressIn={onPressIn} onPressOut={onPressOut}>
                         <View style={[
                                 base_styles.container,
                                 variants[variant].root,
@@ -33,7 +37,7 @@ const Root = ({
                                                 base_styles.spinner,
                                                 variants[variant].spinner
                                         ]}>
-                                                <ActivityIndicator />
+                                                <ActivityIndicator color={"black"} />
                                         </View>
                                 }
                                 <View style={[
