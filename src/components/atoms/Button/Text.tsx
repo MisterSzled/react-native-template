@@ -11,7 +11,7 @@ interface ButtonTextProps extends PropsWithChildren {
 const ButtonText = ({ children, style }: ButtonTextProps) => {
         const { variant, isLoading } = useButtonContext();
 
-        return <Text style={[style, base_styles.text, variants[variant].text]} selectable={false}>
+        return <Text style={[base_styles.text, variants[variant].text, style]} selectable={false}>
                 {children}
         </Text>
 }
@@ -22,7 +22,7 @@ const base_styles = StyleSheet.create(({ colors, tokens }) => ({
                 fontWeight: tokens.fontWeight.semibold,
                 alignItems: "center",
                 justifyContent: "center",
-                bottom: 2,
+                bottom: 1,
         },
 }));
 

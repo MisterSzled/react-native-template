@@ -40,9 +40,14 @@ const index = () => {
 
                         <View style={{margin: 10}}/>
 
-                        <AnimatedButton.Root isLoading={isPending} onPress={handleLogin} icon={<ArrowRight />}>
-                                {t("login.title")}
-                        </AnimatedButton.Root>
+                        <AnimatedButton isLoading={isPending} onPress={handleLogin}>
+                                <Button.Text>
+                                        {t("login.title")}
+                                </Button.Text>
+                                <Button.Icon>
+                                        <ArrowRight color={"black"}/>
+                                </Button.Icon>
+                        </AnimatedButton>
                 </View>
 
         )

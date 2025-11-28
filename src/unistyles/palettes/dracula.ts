@@ -5,7 +5,7 @@ export const dracula = {
         base_content: '#f8f8f3',
 
         primary: '#ff79c6',
-        primary_content: '#ff79c6',
+        primary_content: '#16050e',
 
         secondary: '#bd93f9',
         secondary_content: '#0d0815',

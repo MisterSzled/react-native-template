@@ -27,7 +27,6 @@ const Root = ({
                 <Pressable onPress={onPress} onPressIn={onPressIn} onPressOut={onPressOut}>
                         <View style={[
                                 base_styles.container,
-                                variants[variant].root,
                                 variants[variant].container,
                                 disabled && base_styles.disabled,
                                 styles,
