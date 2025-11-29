@@ -42,6 +42,8 @@ export function create_mocks_from_contract<C extends Contract>(contract: C, mock
                 const handler = mock_entry.handler;
                 const delay = mock_entry.delay;
 
+                console.log(delay)
+
                 handlers.push(
                         mock.request(definition.method, definition.pattern, handler as any, undefined, delay)
                 );

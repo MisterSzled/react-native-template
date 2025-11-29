@@ -3,7 +3,7 @@ import { HandlerContext, mock } from "@/src/api/mock/factory";
 import { LoginRequest } from "../../schema";
 
 export const login = {
-        delay: 12000,
+        delay: 1200,
         handler: async (context: HandlerContext) => {
                 const { username, password } = await context.request.json() as LoginRequest;
                 if (username === "demo" && password === "demo") {

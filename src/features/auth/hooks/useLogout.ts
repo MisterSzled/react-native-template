@@ -1,12 +1,12 @@
-import { useMutation } from "@tanstack/react-query";
 import { authApi } from "../api/auth.api";
 import { router } from "expo-router";
 import { useAuth } from "./useAuth";
+import { useSingleMutation } from "@/src/api/hooks/useSingleMutation";
 
 export function useLogout() {
         const authStore = useAuth((s) => s.logout);
 
-        return useMutation({
+        return useSingleMutation({
                 mutationFn: () => 
                         authApi.logout(),
 
