@@ -13,7 +13,7 @@ export const contract: Contract = {
         product: {
                 method: "GET",
                 pattern: API_ROUTES.PRODUCT_PATTERN,
-                route: (id: number) => API_ROUTES.PRODUCT(id),
+                route: (id: string) => API_ROUTES.PRODUCT(id),
                 response: ProductSchema
         }
 }

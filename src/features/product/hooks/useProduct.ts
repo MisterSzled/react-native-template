@@ -3,7 +3,7 @@ import { productApi } from "../api/product.api";
 import { Product } from "../schema";
 
 export function useProduct(
-        id: number,
+        id: string,
         options?: UseQueryOptions<Product, Error>
 ) {
         return useQuery<Product, Error>({

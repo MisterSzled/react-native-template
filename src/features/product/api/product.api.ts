@@ -8,7 +8,8 @@ export const productApi = {
                 return ProductsSchema.parse(data);
         },
 
-        async product(id: number): Promise<Product> {
+        async product(id: string): Promise<Product> {
+                console.log(id)
                 const data = await apiClient.get(contract.product.route!(id));
                 return ProductSchema.parse(data);
         },

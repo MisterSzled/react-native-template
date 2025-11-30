@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import type { Product } from '../schema';
 import { BasketStore } from '../stores/basket.store';
 import QuantityControl from './QuantityControl';
+import { router } from 'expo-router';
 
 interface Props {
     product: Product,
@@ -15,7 +16,10 @@ interface Props {
 const ProductCard = ({ product, amount, basket }: Props) => {
     const { width } = useWindowDimensions();
     const handleProductPress = () => {
-        // router.navigate(`/product/${product.slug}`);
+        router.navigate({
+            pathname: `/(shop)/[slug]`,
+            params: {slug: product.slug}
+        });
     }
     return (
         <View style={styles.root}>
