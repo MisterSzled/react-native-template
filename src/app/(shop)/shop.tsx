@@ -2,13 +2,14 @@ import { useScaledColumns } from '@/src/features/__core/hooks/useScaledColumns';
 import { useLogout } from "@/src/features/auth/hooks/useLogout";
 import ProductCard from "@/src/features/product/components/ProductCard";
 import { useProducts } from "@/src/features/product/hooks/useProducts";
+import { useBasket } from '@src/features/product/hooks/useBasket';
 import { useTranslation } from "react-i18next";
-import { FlatList, Pressable, View } from "react-native";
+import { FlatList, Pressable, Text, View } from "react-native";
 import { StyleSheet } from 'react-native-unistyles';
-
 
 const index = () => {
         const { t } = useTranslation();
+        const basket = useBasket((s) => s);
 
         const numCols = useScaledColumns();
         const wrapper_styles = (cols: number) => {
@@ -24,13 +25,15 @@ const index = () => {
 
         if (isLoading) {
                 return <View>
-                        No dice
+                        <Text>No Dice</Text>
                 </View>
         }
 
         return (
                 <View style={shop_styles.container}>
-                        <Pressable onPress={handleLogout}>{t("login.shop")}</Pressable>
+                        <Pressable onPress={handleLogout}>
+                                <Text>{t("login.shop")}</Text>
+                        </Pressable>
 
                         <FlatList
                                 data={data}
@@ -39,7 +42,7 @@ const index = () => {
                                 contentContainerStyle={shop_styles.list_container}
                                 columnWrapperStyle={wrapper_styles(numCols)}
                                 renderItem={({ item }) => (
-                                        <ProductCard product={item} />
+                                        <ProductCard product={item} basket={basket} amount={basket.items[item.name]} />
                                 )}
                         />
                 </View>

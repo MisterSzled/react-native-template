@@ -3,20 +3,22 @@ import { Image, Text, TouchableOpacity, useWindowDimensions, View } from 'react-
 import RenderHTML from "react-native-render-html";
 import { StyleSheet } from 'react-native-unistyles';
 import type { Product } from '../schema';
+import { BasketStore } from '../stores/basket.store';
+import QuantityControl from './QuantityControl';
 
 interface Props {
     product: Product,
-    describe?: boolean,
+    amount?: number,
+    basket: BasketStore
 }
 
-const ProductCard = ({ product, describe }: Props) => {
+const ProductCard = ({ product, amount, basket }: Props) => {
     const { width } = useWindowDimensions();
     const handleProductPress = () => {
         // router.navigate(`/product/${product.slug}`);
     }
-
     return (
-        <View style={product_card_styles.root}>
+        <View style={styles.root}>
             <TouchableOpacity onPress={handleProductPress}>
                 <Image
                     className="w-full"
@@ -57,17 +59,22 @@ const ProductCard = ({ product, describe }: Props) => {
                     />
                 </View>
 
-                {/* <ProductQuantityControl product={product} /> */}
+                <QuantityControl product_name={product.name} basket={basket} amount={amount}/>
             </View>
         </View>
     )
 }
 
 
-const product_card_styles = StyleSheet.create(({ tokens }) => ({
+const styles = StyleSheet.create(({ tokens }) => ({
     root: {
         padding: tokens.spacing.xs
     },
+    increment_bar: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
+    }
 }));
 
 export default ProductCard

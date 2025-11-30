@@ -6,12 +6,13 @@ import { Redirect } from "expo-router";
 import { ArrowRight } from 'iconoir-react-native';
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
-import { StyleSheet } from "react-native-unistyles";
+import { StyleSheet, useUnistyles } from "react-native-unistyles";
 
 const index = () => {
         const { t } = useTranslation();
         const { isAuthenticated } = useAuth((s) => s);
         const { mutate: login, isPending } = useLogin();
+        const { theme } = useUnistyles()
 
         const handleLogin = () => {
                 login({
@@ -38,14 +39,14 @@ const index = () => {
                                 </Button.Icon>
                         </Button.Root>
 
-                        <View style={{margin: 10}}/>
+                        <View style={{ margin: 10 }} />
 
                         <AnimatedButton isLoading={isPending} onPress={handleLogin}>
                                 <Button.Text>
                                         {t("login.title")}
                                 </Button.Text>
-                                <Button.Icon>
-                                        <ArrowRight color={"black"}/>
+                                <Button.Icon style={{ marginLeft: theme.tokens.spacing.md, }}>
+                                        <ArrowRight color={"black"} />
                                 </Button.Icon>
                         </AnimatedButton>
                 </View>

@@ -23,7 +23,7 @@ const Icon = ({ children, style }: ButtonIconProps) => {
 
 const icon_styles = StyleSheet.create(({ tokens }) => ({
         icon: {
-                marginLeft: tokens.spacing.md,
+                // marginLeft: tokens.spacing.md,
         },
 }));
 export default Icon
