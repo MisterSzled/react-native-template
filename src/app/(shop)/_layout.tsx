@@ -1,3 +1,4 @@
+import "@/unistyles.config";
 import { Tabs } from "expo-router";
 
 const _layout = () => {
@@ -6,13 +7,15 @@ const _layout = () => {
                         <Tabs.Screen
                                 name="shop"
                                 options={{
-                                        title: "Shop"
+                                        title: "Shop",
+                                        headerShown: false,
                                 }}
                         />
                         <Tabs.Screen
                                 name="basket"
                                 options={{
-                                        title: "Basket"
+                                        title: "Basket",
+                                        headerShown: false
                                 }}
                         />
                 </Tabs>

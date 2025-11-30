@@ -56,7 +56,6 @@ const index = () => {
 const styles = StyleSheet.create(({ colors, tokens }) => ({
         stack: {
                 flex: 1,
-                backgroundColor: "red"
         },
         container: {
                 backgroundColor: colors.base_100,
