@@ -72,6 +72,7 @@ const ProductCard = ({ product, amount, basket }: Props) => {
 
 const styles = StyleSheet.create(({ tokens }) => ({
     root: {
+        flex: 1,
         padding: tokens.spacing.xs
     },
     increment_bar: {
