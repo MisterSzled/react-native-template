@@ -26,7 +26,7 @@ const storageAdapter = {
 
 export const basketStore = create<BasketStore>()(
         persist(
-                (set, get) => ({
+                (set, get, store) => ({
                         items: {},
 
                         increment: (id: string) => {
@@ -71,9 +71,7 @@ export const basketStore = create<BasketStore>()(
                         },
 
                         full_clear: () => {
-                                set({
-                                        items: {}
-                                })
+                                set(store.getInitialState())
                         }
                 }),
                 {
