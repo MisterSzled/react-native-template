@@ -31,8 +31,9 @@ const QuantityControl = ({ product_name, amount, basket }: Props) => {
     )
 }
 
-const styles = StyleSheet.create(() => ({
+const styles = StyleSheet.create(({tokens}) => ({
     root: {
+        marginTop: tokens.spacing.md,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center"

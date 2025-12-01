@@ -13,7 +13,7 @@ export default function Screen() {
         const { data, isLoading, isError } = useProduct(product_slug as string);
         const basket = useBasket(s => s);
 
-        if (isLoading) {
+        if (isLoading || !data) {
                 return <View>
                         <Text>X</Text>
                 </View>
@@ -22,14 +22,15 @@ export default function Screen() {
         return (
                 <View style={item_styles.container}>
 
-                        {/* <ProductCard  product={data} amount={basket.items[data.name]} basket={basket}/> */}
+                        <ProductCard product={data} amount={basket.items[data.name]} basket={basket}/>
                 </View>
 
         );
 }
 
-const item_styles = StyleSheet.create(({ colors }) => ({
+const item_styles = StyleSheet.create(({ colors, tokens }) => ({
         container: {
+                padding: tokens.spacing.xs,
                 backgroundColor: colors.base_100,
                 justifyContent: "center",
                 alignItems: "center",
