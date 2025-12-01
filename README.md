@@ -7,7 +7,10 @@ Framework & Routing
 - Expo Router
 
 UI / Design
-- Tamagui
+- Unistyles
+
+Animations
+- Reanimated
 
 State & Data
 - React Query (server state)
